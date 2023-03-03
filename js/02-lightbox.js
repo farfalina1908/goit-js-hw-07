@@ -17,25 +17,12 @@ function createGalleryEl() {
 }
 gallery.innerHTML = galleryContent;
 
-gallery.addEventListener("click", onLinkClick);
-
-function onLinkClick(event) {
-    event.preventDefault();
-   const lightbox = new SimpleLightbox('.gallery a', {
+const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: "alt",
     captionPosition: "bottom",
     captionDelay: 250,
 });
 
-lightbox.open();
-
-window.addEventListener("keydown", onEscClose);
-function onEscClose(event) {
-if (event.code === "Escape") {
-    lightbox.close();
-}
-}
-}
 
 
 
