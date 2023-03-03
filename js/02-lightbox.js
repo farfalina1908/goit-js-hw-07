@@ -23,16 +23,41 @@ gallery.addEventListener("click", onLinkClick);
 
 function onLinkClick(event) {
     event.preventDefault();
-    const instance = basicLightbox.create(`
-    <img width="1400" height="900" src="${event.target.dataset.source}">
-`);
-instance.show();
+   const lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: "alt",
+    captionPosition: "bottom",
+    captionDelay: 250,
+});
+//    lightbox.on('show.simplelightbox', function () {
+// 	// do something…
+// });
+//     const instance = basicLightbox.create(`
+//     <img width="1400" height="900" src="${event.target.dataset.source}">
+// `);
+lightbox.open();
 
 window.addEventListener("keydown", onEscClose);
 function onEscClose(event) {
 if (event.code === "Escape") {
-instance.close();
+    lightbox.close();
 }
 }
 }
+
+
+
+// function onLinkClick(event) {
+//     event.preventDefault();
+//     const instance = basicLightbox.create(`
+//     <img width="1400" height="900" src="${event.target.dataset.source}">
+// `);
+// instance.show();
+
+// window.addEventListener("keydown", onEscClose);
+// function onEscClose(event) {
+// if (event.code === "Escape") {
+// instance.close();
+// }
+// }
+// }
 
