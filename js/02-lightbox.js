@@ -8,11 +8,9 @@ const galleryContent = createGalleryEl(galleryItems);
 
 function createGalleryEl() {
     return galleryItems.map(({preview, original, description}) => {
-        return `
-        <a class="gallery__item" href="${original}">
+        return `<a class="gallery__item" href="${original}">
   <img class="gallery__image" src="${preview}" alt="${description}" />
-</a>
-        `
+</a>`
     }
 
     ).join("");
@@ -28,12 +26,7 @@ function onLinkClick(event) {
     captionPosition: "bottom",
     captionDelay: 250,
 });
-//    lightbox.on('show.simplelightbox', function () {
-// 	// do something…
-// });
-//     const instance = basicLightbox.create(`
-//     <img width="1400" height="900" src="${event.target.dataset.source}">
-// `);
+
 lightbox.open();
 
 window.addEventListener("keydown", onEscClose);
@@ -46,18 +39,4 @@ if (event.code === "Escape") {
 
 
 
-// function onLinkClick(event) {
-//     event.preventDefault();
-//     const instance = basicLightbox.create(`
-//     <img width="1400" height="900" src="${event.target.dataset.source}">
-// `);
-// instance.show();
-
-// window.addEventListener("keydown", onEscClose);
-// function onEscClose(event) {
-// if (event.code === "Escape") {
-// instance.close();
-// }
-// }
-// }
 
